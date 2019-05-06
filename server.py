@@ -11,6 +11,7 @@ from ball_tracking import track_image
 app = Flask(__name__)
 
 base_path="/home/jatin/Downloads/Python/BTP/"
+save_location="/home/jatin/Downloads/Python/BTP/BTP/result.png"
 
 
 
@@ -21,16 +22,32 @@ def index():
 
 @app.route('/opencamera/',methods=['POST'])
 def opencamera():
-    track_image("")
-    return ""
+    print("Hello")
+    track_image(save_location)
+#    label=predict_image(save_location)
+    return "apple"
 
+@app.route('/getcaption/',methods=['GET'])
+def getcaption():
+    return "Hi caption here"
+
+#
+#def predict_image(save_location):
+#    labels = np.load(label_path).item()
+#    model = load_model(model_path)
+#    new_image=load_image(save_location)
+#    pred = model.predict(new_image)
+#    answer = np.argmax(pred)
+#    result=labels[answer]
+#    return result
+#            
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host='0.0.0.0',port=5050,use_reloader=False,threaded=True)
+    app.run(host='0.0.0.0',port=5057,threaded=True)
 
 
-
+#
 #
 #@app.route("/train_dataset/<size>")
 #def train_dataset(size):

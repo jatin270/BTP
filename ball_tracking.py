@@ -16,7 +16,6 @@ import imutils
 import time
  
 
-save_location="/home/jatin/Downloads/Python/BTP/result.png"
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()

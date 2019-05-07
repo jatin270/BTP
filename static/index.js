@@ -10,7 +10,8 @@ function opencamera(){
 }
 
 function generatecaption(){
-  $.get("/getcaption/",function( data ){
+  console.log("Get caption")
+  $.post("/getcaption/",function( data ){
     console.log(data)
   });
 }

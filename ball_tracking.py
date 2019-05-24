@@ -14,7 +14,7 @@ import argparse
 import cv2
 import imutils
 import time
- 
+import gc
 
 
 # construct the argument parse and parse the arguments
@@ -29,11 +29,13 @@ args = vars(ap.parse_args())
 # ball in the HSV color space, then initialize the
 # list of tracked points
 def track_image(save_location):
+    gc.collect()
     greenLower = (29, 86, 6)
     greenUpper = (64, 255, 255)
     pts = deque(maxlen=args["buffer"])     
     # if a video path was not supplied, grab the reference
     # to the webcam
+    print("Camera Opened")
     if not args.get("video", False):
         vs = VideoStream(src=0).start()     
     # otherwise, grab a reference to the video file
